@@ -1,0 +1,86 @@
+\begin{thebibliography}{10}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Chen et~al.(2026)Chen, Li, Wan, and Yuan]{Chen2026}
+Jian Chen, Siyuan Li, Chucheng Wan, and Zixuan Yuan.
+\newblock From statute to control flow: Span-grounded deontic trees for
+  defeasible scope parsing.
+\newblock In \emph{ArXiv}, 2026.
+
+\bibitem[Cornelio and Diab(2024)]{Cornelio2024}
+Cristina Cornelio and Mohammed Diab.
+\newblock {RECOVER}: A neuro-symbolic framework for failure detection and
+  recovery.
+\newblock In \emph{2024 IEEE/RSJ International Conference on Intelligent Robots
+  and Systems (IROS)}, pages 12435--12442, 2024.
+\newblock \doi{10.1109/IROS58592.2024.10801853}.
+
+\bibitem[Cotnareanu et~al.(2026)Cotnareanu, Ch{\'e}telat, Zhang, and
+  Coates]{Cotnareanu2026}
+Joseph Cotnareanu, Didier Ch{\'e}telat, Yingxue Zhang, and Mark Coates.
+\newblock A balanced neuro-symbolic approach for commonsense abductive logic.
+\newblock \emph{ArXiv}, abs/2601.18595, 2026.
+\newblock \doi{10.48550/arXiv.2601.18595}.
+
+\bibitem[Manhaeve et~al.(2018)Manhaeve, Dumancic, Kimmig, Demeester, and
+  Raedt]{Manhaeve2018}
+Robin Manhaeve, Sebastijan Dumancic, Angelika Kimmig, Thomas Demeester, and
+  Luc~De Raedt.
+\newblock {DeepProbLog}: Neural probabilistic logic programming.
+\newblock In \emph{Advances in Neural Information Processing Systems}, 2018.
+
+\bibitem[Pan et~al.(2023)Pan, Albalak, Wang, and Wang]{Pan2023}
+Liangming Pan, Alon Albalak, Xinyi Wang, and William~Yang Wang.
+\newblock {Logic-LM}: Empowering large language models with symbolic solvers
+  for faithful logical reasoning.
+\newblock In \emph{Proceedings of the 2023 Conference on Empirical Methods in
+  Natural Language Processing}, 2023.
+\newblock \doi{10.48550/arXiv.2305.12295}.
+
+\bibitem[Raedt et~al.(2007)Raedt, Kimmig, and Toivonen]{Raedt2007}
+Luc~De Raedt, Angelika Kimmig, and Hannu Toivonen.
+\newblock {ProbLog}: A probabilistic prolog and its application in link
+  discovery.
+\newblock In \emph{Proceedings of the 20th International Joint Conference on
+  Artificial Intelligence}, pages 2468--2473, 2007.
+
+\bibitem[Sinha et~al.(2019)Sinha, Sodhani, Dong, Pineau, and
+  Hamilton]{Sinha2019}
+Koustuv Sinha, Shagun Sodhani, Jin Dong, Joelle Pineau, and William~L.
+  Hamilton.
+\newblock {CLUTRR}: A diagnostic benchmark for inductive reasoning from text.
+\newblock In \emph{Proceedings of the 2019 Conference on Empirical Methods in
+  Natural Language Processing}, pages 4505--4514, 2019.
+\newblock \doi{10.18653/v1/D19-1458}.
+
+\bibitem[Tafjord et~al.(2021)Tafjord, Dalvi, and Clark]{Tafjord2020}
+Oyvind Tafjord, Bhavana Dalvi, and Peter Clark.
+\newblock {ProofWriter}: Generating implications, proofs, and abductive
+  statements over natural language.
+\newblock In \emph{Findings of the Association for Computational Linguistics:
+  ACL-IJCNLP 2021}, pages 3621--3634, 2021.
+\newblock \doi{10.18653/v1/2021.findings-acl.317}.
+
+\bibitem[Thatikonda et~al.(2026)Thatikonda, Han, Buntine, and
+  Shareghi]{Thatikonda2026}
+Ramya~Keerthy Thatikonda, Jiuzhou Han, W.~Buntine, and Ehsan Shareghi.
+\newblock Improving symbolic translation of language models for logical
+  reasoning.
+\newblock \emph{ArXiv}, abs/2601.09446, 2026.
+\newblock \doi{10.48550/arXiv.2601.09446}.
+
+\bibitem[Weber et~al.(2019)Weber, Minervini, Munchmeyer, Leser, and
+  Rockt{\"a}schel]{Weber2019}
+Leon Weber, Pasquale Minervini, Jannes Munchmeyer, U.~Leser, and Tim
+  Rockt{\"a}schel.
+\newblock {NLProlog}: Reasoning with weak unification for question answering in
+  natural language.
+\newblock In \emph{Proceedings of the 57th Annual Meeting of the Association
+  for Computational Linguistics}, pages 6151--6161, 2019.
+\newblock \doi{10.18653/v1/P19-1618}.
+
+\end{thebibliography}

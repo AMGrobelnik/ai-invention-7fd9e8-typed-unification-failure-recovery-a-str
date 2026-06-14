@@ -1,0 +1,16 @@
+{
+  "title": "Typed Unification Failure Recovery for Text-to-FOL Pipelines",
+  "summary": "Generated a 14-page publication-ready LaTeX paper titled 'Typed Unification Failure Recovery: A Structured Repair Framework for Text-to-FOL Neuro-Symbolic Pipelines'. The paper contains all six sections: Introduction (with failure taxonomy motivation, prior work gaps, and 5 key contributions), Related Work (6 subsections covering neuro-symbolic reasoning, abductive LP, soft unification, failure recovery, knowledge extraction, and benchmarks), Methods (taxonomy of 5 failure types with detection logic, 5 type-specific repair strategies, and bridge-axiom library management), Experiments (ProofWriter + CLUTRR datasets, 4 baselines/methods, 4 metrics, results with accuracy and hallucination data), Discussion (interpretation, limitations, comparison to prior work, future directions), and Conclusion. All 5 figures from available_figures are included (fig1_v0.jpg through fig5_v0.jpg), all placed as figure*[!t] with width=\\textwidth,height=0.45\\textheight,keepaspectratio per the 21:9 aspect ratio requirement. Bibliography built via Semantic Scholar batch fetch for 10 references (NLProlog/Weber2019, RECOVER/Cornelio2024, Logic-LM/Pan2023, CLUTRR/Sinha2019, DeepProbLog/Manhaeve2018, ProofWriter/Tafjord2020, ARGOS/Cotnareanu2026, Span-Grounded Deontic Trees/Chen2026, ProbLog/Raedt2007, Improving Symbolic Translation/Thatikonda2026). Compiled successfully with pdflatex+bibtex+pdflatex+pdflatex (4-pass). Visual review confirmed: clean single-column layout, figures display correctly with readable bar charts and diagrams, all citations resolve (no ?? symbols), footnotes with GitHub URLs preserved, no text overflow or spacing issues.",
+  "out_expected_files": {
+    "paper_tex_path": "paper.tex",
+    "paper_pdf_path": "paper.pdf",
+    "references_bib_path": "references.bib",
+    "figure_paths": [
+      "figures/fig1_v0.jpg",
+      "figures/fig2_v0.jpg",
+      "figures/fig3_v0.jpg",
+      "figures/fig4_v0.jpg",
+      "figures/fig5_v0.jpg"
+    ]
+  }
+}

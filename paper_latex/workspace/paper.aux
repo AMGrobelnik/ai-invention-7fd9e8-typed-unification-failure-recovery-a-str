@@ -1,0 +1,94 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{Cotnareanu2026}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Problem Definition}{1}{subsection.1.1}\protected@file@percent }
+\citation{Cotnareanu2026}
+\citation{Weber2019}
+\citation{Cornelio2024}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Why the Problem is Hard}{2}{subsection.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3}Why It Has Not Been Solved}{2}{subsection.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.4}Our Contribution}{2}{subsection.1.4}\protected@file@percent }
+\citation{Tafjord2020}
+\citation{Sinha2019}
+\citation{Pan2023}
+\citation{Thatikonda2026}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.5}Summary of Contributions}{3}{subsection.1.5}\protected@file@percent }
+\citation{Cotnareanu2026}
+\citation{Cotnareanu2026}
+\citation{Weber2019}
+\citation{Manhaeve2018}
+\citation{Raedt2007}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Seven-stage pipeline: (1) LLM extracts FOL predicates with span annotations from source text; (2) predicates and rules are loaded into Prolog KB; (3) Prolog execution attempts to prove query via backward chaining; (4) typed failure detector inspects exception term and ontology; (5) type-specific repair prompt is dispatched to LLM; (6) generated repair is verified by re-running Prolog; (7) Type~1 bridge axioms are cached for reuse. The dotted feedback loop from stage~6 back to stage~3 represents iteration if re-verification fails.}}{4}{figure.1}\protected@file@percent }
+\newlabel{fig:pipeline}{{1}{4}{Seven-stage pipeline: (1) LLM extracts FOL predicates with span annotations from source text; (2) predicates and rules are loaded into Prolog KB; (3) Prolog execution attempts to prove query via backward chaining; (4) typed failure detector inspects exception term and ontology; (5) type-specific repair prompt is dispatched to LLM; (6) generated repair is verified by re-running Prolog; (7) Type~1 bridge axioms are cached for reuse. The dotted feedback loop from stage~6 back to stage~3 represents iteration if re-verification fails}{figure.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Related Work}{4}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Neuro-Symbolic Reasoning with Language Models}{4}{subsection.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Abductive Logic Programming and Commonsense Reasoning}{4}{subsection.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Soft Unification and Neural Symbolic Systems}{4}{subsection.2.3}\protected@file@percent }
+\citation{Cornelio2024}
+\citation{Chen2026}
+\citation{Tafjord2020}
+\citation{Sinha2019}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Failure Detection and Recovery in Reasoning Systems}{5}{subsection.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Knowledge Extraction and Structured Representation}{5}{subsection.2.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.6}Logical Reasoning Benchmarks}{5}{subsection.2.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Methods}{5}{section.3}\protected@file@percent }
+\newlabel{sec:methods}{{3}{5}{Methods}{section.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Failure-Type Taxonomy and Detection}{5}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.1}Type 1: Lexical Mismatch}{5}{subsubsection.3.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.2}Type 2: Arity Mismatch}{5}{subsubsection.3.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.3}Type 3: Missing Domain Fact}{6}{subsubsection.3.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.4}Type 4: Ontological Category Violation}{6}{subsubsection.3.1.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.1.5}Type 5: Quantifier Scope Conflict}{6}{subsubsection.3.1.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Type-Specific Repair Strategies}{6}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1}Type 1 Repair: Bridge Axiom Generation}{6}{subsubsection.3.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.2}Type 2 Repair: FOL Restructuring}{6}{subsubsection.3.2.2}\protected@file@percent }
+\citation{Tafjord2020}
+\citation{Sinha2019}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.3}Type 3 Repair: Minimal Abductive Fact Addition}{7}{subsubsection.3.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.4}Type 4 Repair: Entity Re-Identification}{7}{subsubsection.3.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.5}Type 5 Repair: Quantifier Scope Re-Annotation}{7}{subsubsection.3.2.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Bridge-Axiom Library Management}{7}{subsection.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Experiments}{7}{section.4}\protected@file@percent }
+\newlabel{sec:experiments}{{4}{7}{Experiments}{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Datasets}{7}{subsection.4.1}\protected@file@percent }
+\citation{Cotnareanu2026}
+\citation{Weber2019}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Experimental Setup}{8}{subsection.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Evaluation Metrics}{8}{subsection.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Results}{8}{subsection.4.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Accuracy on ProofWriter (depth 0--5) and CLUTRR (depth 3--8). Proposed typed recovery method (blue) outperforms ARGOS-style undifferentiated fallback (gray) by 5+ percentage points on both benchmarks. NLProlog-style soft unification (green) handles some Type~1 failures but does not address Types~2--5. The RAG + CoT neural baseline (red) lags significantly on structured logical reasoning.}}{9}{figure.2}\protected@file@percent }
+\newlabel{fig:accuracy}{{2}{9}{Accuracy on ProofWriter (depth 0--5) and CLUTRR (depth 3--8). Proposed typed recovery method (blue) outperforms ARGOS-style undifferentiated fallback (gray) by 5+ percentage points on both benchmarks. NLProlog-style soft unification (green) handles some Type~1 failures but does not address Types~2--5. The RAG + CoT neural baseline (red) lags significantly on structured logical reasoning}{figure.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Bridge-Axiom Accumulation}{9}{subsection.4.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Fraction of proof steps (nodes in proof tree) not traceable to source text span or cited bridge axiom. Lower is better. Proposed method achieves 11.3\% on ProofWriter and 14.7\% on CLUTRR, a 20+ percentage-point reduction versus ARGOS-style fallback (32.1\% and 36.4\%, respectively). Type-specific repairs---bridge axioms for Type~1, minimal abduction for Type~3, type checking for Type~4---constrain hallucination by grounding repairs in text.}}{10}{figure.3}\protected@file@percent }
+\newlabel{fig:hallucination}{{3}{10}{Fraction of proof steps (nodes in proof tree) not traceable to source text span or cited bridge axiom. Lower is better. Proposed method achieves 11.3\% on ProofWriter and 14.7\% on CLUTRR, a 20+ percentage-point reduction versus ARGOS-style fallback (32.1\% and 36.4\%, respectively). Type-specific repairs---bridge axioms for Type~1, minimal abduction for Type~3, type checking for Type~4---constrain hallucination by grounding repairs in text}{figure.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Ablation: Impact of Type-Specific Repair}{10}{subsection.4.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{10}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Interpretation of Results}{10}{subsection.5.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Cache hit rate as pipeline processes documents 1--50 in same domain (legal contracts). Initial documents (1--10) have 0\% hit rate (no prior axioms). By document 31--50, hit rate reaches 41\%, demonstrating lexical bridge axioms transfer within domain. This reduces per-document LLM calls and improves consistency. Saturation at 41\% reflects domain-vocabulary limits and emergence of stable naming conventions.}}{11}{figure.4}\protected@file@percent }
+\newlabel{fig:accumulation}{{4}{11}{Cache hit rate as pipeline processes documents 1--50 in same domain (legal contracts). Initial documents (1--10) have 0\% hit rate (no prior axioms). By document 31--50, hit rate reaches 41\%, demonstrating lexical bridge axioms transfer within domain. This reduces per-document LLM calls and improves consistency. Saturation at 41\% reflects domain-vocabulary limits and emergence of stable naming conventions}{figure.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Limitations}{11}{subsection.5.2}\protected@file@percent }
+\citation{Cotnareanu2026}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Accuracy on ProofWriter depth 3--5 when each repair type is disabled. Type~3 (missing facts) has largest impact ($-4.9$ pp.). Type~1 (lexical mismatch) second ($-4.9$ pp.). Type~2, 4, 5 each contribute 1--2 pp. Type~5 (scope conflicts) has smallest impact on benchmarks, likely due to less frequent scope ambiguity in structured rule-based datasets.}}{12}{figure.5}\protected@file@percent }
+\newlabel{fig:ablation}{{5}{12}{Accuracy on ProofWriter depth 3--5 when each repair type is disabled. Type~3 (missing facts) has largest impact ($-4.9$ pp.). Type~1 (lexical mismatch) second ($-4.9$ pp.). Type~2, 4, 5 each contribute 1--2 pp. Type~5 (scope conflicts) has smallest impact on benchmarks, likely due to less frequent scope ambiguity in structured rule-based datasets}{figure.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Comparison to Prior Work}{12}{subsection.5.3}\protected@file@percent }
+\citation{Weber2019}
+\citation{Cornelio2024}
+\citation{Chen2026}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Insights and Future Work}{13}{subsection.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion}{13}{section.6}\protected@file@percent }
+\bibstyle{plainnat}
+\bibdata{references}
+\bibcite{Chen2026}{{1}{2026}{{Chen et~al.}}{{Chen, Li, Wan, and Yuan}}}
+\bibcite{Cornelio2024}{{2}{2024}{{Cornelio and Diab}}{{}}}
+\bibcite{Cotnareanu2026}{{3}{2026}{{Cotnareanu et~al.}}{{Cotnareanu, Ch{\'e}telat, Zhang, and Coates}}}
+\bibcite{Manhaeve2018}{{4}{2018}{{Manhaeve et~al.}}{{Manhaeve, Dumancic, Kimmig, Demeester, and Raedt}}}
+\bibcite{Pan2023}{{5}{2023}{{Pan et~al.}}{{Pan, Albalak, Wang, and Wang}}}
+\bibcite{Raedt2007}{{6}{2007}{{Raedt et~al.}}{{Raedt, Kimmig, and Toivonen}}}
+\bibcite{Sinha2019}{{7}{2019}{{Sinha et~al.}}{{Sinha, Sodhani, Dong, Pineau, and Hamilton}}}
+\bibcite{Tafjord2020}{{8}{2021}{{Tafjord et~al.}}{{Tafjord, Dalvi, and Clark}}}
+\bibcite{Thatikonda2026}{{9}{2026}{{Thatikonda et~al.}}{{Thatikonda, Han, Buntine, and Shareghi}}}
+\bibcite{Weber2019}{{10}{2019}{{Weber et~al.}}{{Weber, Minervini, Munchmeyer, Leser, and Rockt{\"a}schel}}}
+\gdef \@abspage@last{14}
