@@ -1,0 +1,70 @@
+{
+  "title": "Typed Prolog Failure Detection & Repair Strategy Mapping in Text-to-FOL Pipelines",
+  "layman_summary": "Maps five Prolog failure types in text-to-FOL to repair strategies: lexical mismatch, arity mismatch, missing facts, category violation, and scope conflict.",
+  "summary": "This research comprehensively maps Prolog's exception signals and goal-failure patterns to five structurally distinct failure modes in text-to-first-order-logic pipelines: (1) Lexical Mismatch (predicate name synonymy), (2) Arity Mismatch (wrong argument count), (3) Missing Domain Fact (valid predicate but absent ground atoms), (4) Ontological Category Violation (entity type incompatibility), and (5) Quantifier Scope Conflict (∀∃ vs. ∃∀ ambiguity). The research synthesizes repair strategies from four seminal systems: ARGOS (Cotnareanu et al. ICLR 2026) handles Type 3 via iterative abductive augmentation using SAT solver backbone feedback (18.4 average LLM calls per problem); NLProlog (Weber et al. ACL 2019) addresses Type 1 via soft unification with learned embeddings (cosine similarity on SentVec); RECOVER (Cornelio & Diab 2024) demonstrates ontology-driven type-specific failure detection with explicit logical rules; and abductive logic programming literature provides principled fact generation. The output is a concrete typed-failure detector design with: (a) exception-to-failure-type decision tree with heuristics (semantic similarity >0.8 for Type 1, ontology type-checking for Type 4, proof-tree analysis for Type 5); (b) five specialized repair prompts tailored to failure semantics (bridge axioms, FOL restructuring, minimal abduction, entity re-typing, scope re-annotation); and (c) a rigorous benchmark evaluation plan using RuleTaker (100K examples per difficulty level D0–D5, systematic composition) and CLUTRR (kinship inference, 3-8 reasoning hops, human performance 70% for k≤3, 40-50% for k>3, noise robustness testing). Key finding: ARGOS uses undifferentiated prompting (generic \"fill in blank\" for all failures, 81% accuracy on FOLIO, 84% on CLUTRR); NLProlog requires end-to-end training; RECOVER demonstrates type-specific detection principle but requires manual ontology engineering. A unified typed detector promises improved precision by routing each failure type to specialized repair logic rather than generic fallback.",
+  "out_expected_files": {
+    "output": "research_out.json"
+  },
+  "answer": "Prolog's exception signals and goal-failure patterns map to five structurally distinct failure modes in text-to-FOL pipelines [1, 2, 3, 4, 5, 6]. ISO standard Prolog distinguishes catchable exceptions (type_error, instantiation_error, existence_error) from silent goal failures [1]. Exceptions leave proof traces; goal failures require exhaustive clause search [1].\n\n**Failure Type Mapping** [1, 2]:\n\n**Type 1: Lexical Mismatch** — Predicate name differs (e.g., owns vs. has_possession), same relationship. Prolog signal: GOAL FAILURE. Detection: predicate name mismatch + semantic similarity >0.8 (SentBERT) + arity match [3].\n\n**Type 2: Arity Mismatch** — Wrong arity (event(date,location,desc) vs. event(date,desc)). Prolog signal: type_error or existence_error or unification failure [1].\n\n**Type 3: Missing Domain Fact** — Predicate defined, arity correct, but ground fact absent. Prolog signal: GOAL FAILURE. Detection: predicate exists AND exhaustive clause search fails [2].\n\n**Type 4: Ontological Category Violation** — Entity fails type constraint (hasAge(X) requires Person, X is Document). Prolog signal: NO EXCEPTION. Detection: external OpenCyc type-checker queries isa/genls predicates [2, 7].\n\n**Type 5: Quantifier Scope Conflict** — Proof succeeds but wrong result (∀∃ vs. ∃∀ ambiguity). Prolog signal: NO EXCEPTION. Detection: proof-tree analysis + user scope annotations [2].\n\n**Repair Strategies** [3, 4, 5, 6]:\n\n**ARGOS (Type 3)** [3]: Iterative abductive augmentation using SAT solver backbone. Algorithm: (1) SAT solve; extract backbone (literals implied by premises); (2) if unsolvable, use generic prompt \"Fill in the blank with a known predicate: [L1 ∧L2] implies ___([e])\" to generate commonsense propositions; (3) score each for commonsense and relevance; (4) repeat until solvable. Cost: 18.4 average LLM calls per problem. Performance: 81% on FOLIO, 84% on CLUTRR (outperforms baselines by 3-10% and 6-8% respectively). LIMITATION: uses undifferentiated prompting for ALL failures; does not distinguish failure types [3].\n\n**NLProlog (Type 1)** [4]: Soft unification with learned embeddings. Replace hard Prolog unification with differentiable similarity s₁ ∼_θ s₂ ∈ [0,1] based on cosine distance of SentVec embeddings. Proof score = aggregation of similarity scores. End-to-end differentiable; fine-tune via backpropagation. STRENGTH: handles linguistic variability. LIMITATIONS: non-auditable, requires training, does not address Type 2-5 [4].\n\n**RECOVER (Multi-Type Detection)** [5]: Ontology + logical rules + LLM replanning. Represents failures via explicit rules applied to scene-graphs. Example: DroppingObjFailure detected by rule checking if held object absent post-action. STRENGTH: type-specific recovery strategies stored in ontology (different repairs for dropped vs. inaccessible). LIMITATION: requires domain-specific ontology engineering (OntoThor for kitchen robotics); rules manually authored [5].\n\n**Abductive Logic Programming** [6]: PACS framework. Key principle: abducibles (assumed propositions) should be MINIMAL and NECESSARY—only add facts required to reach proof goal, not all plausible commonsense. Application: Type 3 repair should use minimalist prompt specifying \"SINGLE, MOST SPECIFIC fact\" [6].\n\n**OpenCyc Type System (Type 4)** [2, 7]: Uses isa(Individual, Collection) and genls(SubCollection, SuperCollection) predicates. Domain/range constraints via rules. OpenCyc Lite: ~6,000 base concepts, sufficient for upper-level categories (Person, Organization, Date) but limited for domain-specific types [7].\n\n**Benchmark Verification** [8, 9]: RuleTaker contains 100K examples per difficulty level (D0–D5) with explicit rule definitions; systematic composition enables clean FOL extraction [8]. CLUTRR infers kinship relations in narratives, requires 3-8 reasoning hops; human performance 70%+ for k≤3, 40-50% for k>3; includes noise robustness testing (irrelevant facts, supporting facts, disconnected facts) [9].\n\n**Critical Findings**: (1) ARGOS achieves 81–84% via generic prompting (no failure-type distinction); ablation shows backbone tracking matters (81% vs. 79% without backbone) [3]. (2) NLProlog requires end-to-end training; implicit handling of Type 1 via soft matching; no explicit support for Types 2–5. (3) RECOVER demonstrates type-specific recovery principle but at cost of manual ontology engineering. (4) No existing system distinguishes all five types with auditable heuristics. (5) Bridge axioms (Type 1 repairs) indexed by (source_predicate, target_predicate) enable reuse and transfer learning across documents.",
+  "sources": [
+    {
+      "index": 1,
+      "url": "https://eu.swi-prolog.org/pldoc/man?section=exception",
+      "title": "SWI-Prolog Exception Handling Documentation (ISO Standard)",
+      "summary": "Defines exception structure error(Formal, Context), types (type_error, instantiation_error, existence_error), distinction between catchable exceptions and silent goal failures, trace semantics."
+    },
+    {
+      "index": 2,
+      "url": "https://www.swi-prolog.org/pldoc/man?section=error",
+      "title": "SWI-Prolog library(error): Error Generating Support",
+      "summary": "Documents ISO error predicates, formal vs. informal error terms, must_be/2 type validation."
+    },
+    {
+      "index": 3,
+      "url": "https://arxiv.org/abs/2601.18595",
+      "title": "A Balanced Neuro-Symbolic Approach for Commonsense Abductive Logic (ARGOS, Cotnareanu et al., ICLR 2026)",
+      "summary": "Proposes ARGOS: iterative abductive augmentation using SAT solver backbone. Generic prompt: \"Fill in the blank with known predicate: [L1 ∧L2] implies ___([e])\". Cost: 18.4 LLM calls/problem. Results: 81% FOLIO, 84% CLUTRR. Ablations confirm backbone-tracking importance (81% vs. 79%)."
+    },
+    {
+      "index": 4,
+      "url": "https://arxiv.org/abs/1906.06187",
+      "title": "NLProlog: Reasoning with Weak Unification (Weber et al., ACL 2019)",
+      "summary": "Replaces hard Prolog unification with differentiable similarity s₁ ∼_θ s₂ (cosine distance of SentVec embeddings). End-to-end differentiable via backpropagation. Handles linguistic variability but non-auditable and requires training."
+    },
+    {
+      "index": 5,
+      "url": "https://arxiv.org/abs/2404.00756",
+      "title": "Recover: A Neuro-Symbolic Framework for Failure Detection and Recovery (Cornelio & Diab, 2024)",
+      "summary": "Ontology-driven failure detection using logical rules on scene-graphs. Failure taxonomy (AgentFailure, EnvironmentalFailure, SafetyFailure) with explicit detection rules. Type-specific recovery strategies stored in ontology. Requires domain-specific engineering."
+    },
+    {
+      "index": 6,
+      "url": "https://www.microsoft.com/en-us/research/publication/abductive-reasoning-with-probabilistic-commonsense/",
+      "title": "Abductive Reasoning with Probabilistic Commonsense (PACS, Microsoft Research)",
+      "summary": "Formalizes abductive fact generation: abducibles should be minimal (only necessary facts) and ranked by commonsense probability. Principle applies to Type 3 repair prompt design."
+    },
+    {
+      "index": 7,
+      "url": "https://www.qrg.northwestern.edu/nextkb/IntroOpenCycOnt.pdf",
+      "title": "A Brief Introduction to the OpenCyc Ontology (Northwestern University)",
+      "summary": "Documents OpenCyc structure: isa/genls predicates, ~6,000 base concepts in Lite, domain/range constraints. Adequate for upper-level categories; limited for domain-specific types."
+    },
+    {
+      "index": 8,
+      "url": "https://aclanthology.org/2020.coling-main.580.pdf",
+      "title": "Constructing A Multi-hop QA Dataset: RuleTaker (Emmons et al., COLING 2020)",
+      "summary": "100K examples per difficulty level (D0–D5). Explicit rule definitions enable clean FOL extraction and identification of arity mismatches and missing facts. Multi-hop depths up to 8+ steps."
+    },
+    {
+      "index": 9,
+      "url": "https://aclanthology.org/D19-1458.pdf",
+      "title": "CLUTRR: A Diagnostic Benchmark for Inductive Reasoning from Text (Sinha et al., EMNLP 2019)",
+      "summary": "Kinship inference in narratives, 3-8 reasoning hops. Human performance: 70%+ for k≤3, 40-50% for k>3. Noise robustness testing (irrelevant, supporting, disconnected facts). Systematic generalization via held-out rule combinations."
+    }
+  ],
+  "follow_up_questions": [
+    "Can ARGOS's backbone-guided prompting be specialized per failure type to improve precision without increasing LLM call budget?",
+    "How does semantic similarity threshold (currently 0.8 for Type 1) need tuning for domain-specific predicate vocabularies (legal, medical)?",
+    "What is the coverage gap for OpenCyc Lite on real-world professional documents (legal contracts, medical notes, technical specs)?"
+  ]
+}

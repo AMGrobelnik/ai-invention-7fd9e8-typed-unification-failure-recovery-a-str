@@ -1,0 +1,162 @@
+{
+  "metadata": {
+    "method_name": "Typed Failure Recovery for Neuro-Symbolic Reasoning",
+    "description": "Compares typed failure repair (Type1: unknown predicate, Type2: arity mismatch, Type3: missing fact) vs generic-repair baseline on ProofWriter + CLUTRR reasoning benchmarks. Uses Python forward-chaini...",
+    "total_examples": 50,
+    "typed_accuracy": 0.24,
+    "baseline_accuracy": 0.26,
+    "typed_hallucination_rate": 0.0,
+    "baseline_hallucination_rate": 0.08,
+    "typed_repairs_attempted": 43,
+    "typed_repairs_succeeded": 5,
+    "baseline_repairs_attempted": 43,
+    "baseline_repairs_succeeded": 6,
+    "total_cost_usd": 0.02964,
+    "total_llm_calls": 86,
+    "model": "anthropic/claude-haiku-4-5",
+    "sample_traces": [
+      {
+        "example_id": 1,
+        "dataset": "proofwriter",
+        "query_preview": "Theory: The bald eagle is not rough. The bear does not need the bald eagle. The dog needs the bear. ",
+        "expected": "true",
+        "typed_result": "true",
+        "baseline_result": "true",
+        "failure_type": null,
+        "typed_repair_applied": false,
+        "baseline_repair_applied": false
+      },
+      {
+        "example_id": 2,
+        "dataset": "proofwriter",
+        "query_preview": "Theory: The bald eagle is not rough. The bear does not need the bald eagle. The dog needs the bear. ",
+        "expected": "false",
+        "typed_result": "true",
+        "baseline_result": "true",
+        "failure_type": "type3_missing_fact",
+        "typed_repair_applied": true,
+        "baseline_repair_applied": true
+      },
+      {
+        "example_id": 3,
+        "dataset": "proofwriter",
+        "query_preview": "Theory: The bald eagle is not rough. The bear does not need the bald eagle. The dog needs the bear. ",
+        "expected": "unknown",
+        "typed_result": "false",
+        "baseline_result": "true",
+        "failure_type": "type1_unknown_predicate",
+        "typed_repair_applied": true,
+        "baseline_repair_applied": true
+      }
+    ],
+    "key_finding": "Typed repair accuracy=0.240 vs baseline=0.260. Baseline matches or exceeds typed repair — may indicate extraction limits."
+  },
+  "datasets": [
+    {
+      "dataset": "proofwriter",
+      "examples": [
+        {
+          "input": "Theory: The bald eagle is not rough. The bear does not need the bald eagle. The dog needs the bear. If someone is rough then they chase the bald eagle. If someone needs the bear then they are not blue...",
+          "output": "true",
+          "predict_typed_method": "true",
+          "predict_baseline": "true",
+          "metadata_failure_type": "none",
+          "metadata_typed_correct": "True",
+          "metadata_baseline_correct": "True",
+          "metadata_typed_repair_applied": "False",
+          "metadata_baseline_repair_applied": "False",
+          "metadata_typed_cost_usd": "0.0",
+          "metadata_baseline_cost_usd": "0.0",
+          "metadata_hallucination_typed": "0.0",
+          "metadata_hallucination_baseline": "0.0",
+          "metadata_dataset": "proofwriter"
+        },
+        {
+          "input": "Theory: The bald eagle is not rough. The bear does not need the bald eagle. The dog needs the bear. If someone is rough then they chase the bald eagle. If someone needs the bear then they are not blue...",
+          "output": "false",
+          "predict_typed_method": "true",
+          "predict_baseline": "true",
+          "metadata_failure_type": "type3_missing_fact",
+          "metadata_typed_correct": "False",
+          "metadata_baseline_correct": "False",
+          "metadata_typed_repair_applied": "True",
+          "metadata_baseline_repair_applied": "True",
+          "metadata_typed_cost_usd": "0.00024",
+          "metadata_baseline_cost_usd": "0.00024",
+          "metadata_hallucination_typed": "0.0",
+          "metadata_hallucination_baseline": "0.0",
+          "metadata_dataset": "proofwriter"
+        },
+        {
+          "input": "Theory: The bald eagle is not rough. The bear does not need the bald eagle. The dog needs the bear. If someone is rough then they chase the bald eagle. If someone needs the bear then they are not blue...",
+          "output": "unknown",
+          "predict_typed_method": "false",
+          "predict_baseline": "true",
+          "metadata_failure_type": "type1_unknown_predicate",
+          "metadata_typed_correct": "False",
+          "metadata_baseline_correct": "False",
+          "metadata_typed_repair_applied": "True",
+          "metadata_baseline_repair_applied": "True",
+          "metadata_typed_cost_usd": "0.00025",
+          "metadata_baseline_cost_usd": "0.00075",
+          "metadata_hallucination_typed": "0.0",
+          "metadata_hallucination_baseline": "0.0",
+          "metadata_dataset": "proofwriter"
+        }
+      ]
+    },
+    {
+      "dataset": "clutrr",
+      "examples": [
+        {
+          "input": "Story: [Clarence]'s granddaughter, [Emily], was busy helping her brother, [Michael], move to college.\nQuery: ('Clarence', 'Michael')",
+          "output": "grandson",
+          "predict_typed_method": "false",
+          "predict_baseline": "true",
+          "metadata_failure_type": "type1_unknown_predicate",
+          "metadata_typed_correct": "False",
+          "metadata_baseline_correct": "False",
+          "metadata_typed_repair_applied": "True",
+          "metadata_baseline_repair_applied": "True",
+          "metadata_typed_cost_usd": "0.00021",
+          "metadata_baseline_cost_usd": "0.00025",
+          "metadata_hallucination_typed": "0.0",
+          "metadata_hallucination_baseline": "0.0",
+          "metadata_dataset": "clutrr"
+        },
+        {
+          "input": "Story: [Emily] and her granddaughter [Ashley] went to the mall [Michael] likes to visit his sister. Her name is [Emily].\nQuery: ('Ashley', 'Michael')",
+          "output": "grandson",
+          "predict_typed_method": "false",
+          "predict_baseline": "false",
+          "metadata_failure_type": "type1_unknown_predicate",
+          "metadata_typed_correct": "False",
+          "metadata_baseline_correct": "False",
+          "metadata_typed_repair_applied": "True",
+          "metadata_baseline_repair_applied": "True",
+          "metadata_typed_cost_usd": "0.00021",
+          "metadata_baseline_cost_usd": "0.00032",
+          "metadata_hallucination_typed": "0.0",
+          "metadata_hallucination_baseline": "0.0",
+          "metadata_dataset": "clutrr"
+        },
+        {
+          "input": "Story: [Tony] and his sister, [June], went to a sneak preview of the Avengers movie and loved it. [Clarence] has 3 children, and one grandson. The Grandsons name is [Tony]\nQuery: ('Clarence', 'June')",
+          "output": "granddaughter",
+          "predict_typed_method": "false",
+          "predict_baseline": "true",
+          "metadata_failure_type": "type1_unknown_predicate",
+          "metadata_typed_correct": "False",
+          "metadata_baseline_correct": "False",
+          "metadata_typed_repair_applied": "True",
+          "metadata_baseline_repair_applied": "True",
+          "metadata_typed_cost_usd": "0.00023",
+          "metadata_baseline_cost_usd": "0.00032",
+          "metadata_hallucination_typed": "0.0",
+          "metadata_hallucination_baseline": "0.0",
+          "metadata_dataset": "clutrr"
+        }
+      ]
+    }
+  ]
+}

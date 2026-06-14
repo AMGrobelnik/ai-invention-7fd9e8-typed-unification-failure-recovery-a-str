@@ -1,0 +1,90 @@
+{
+  "metadata": {
+    "description": "Neuro-symbolic reasoning datasets: RuleTaker, ProofWriter, CLUTRR",
+    "sources": [
+      "tasksource/proofwriter",
+      "kendrivp/CLUTRR_v1_extracted"
+    ]
+  },
+  "datasets": [
+    {
+      "dataset": "proofwriter",
+      "examples": [
+        {
+          "input": "Theory: Gary is furry. Gary is nice. Gary is red. Gary is rough. Gary is not smart. Gary is white. Gary is young. If Gary is nice and Gary is not white then Gary is red. If someone is white then they ...",
+          "output": "true",
+          "metadata_split": "train",
+          "metadata_config": "depth-0",
+          "metadata_reasoning_depth": 0,
+          "metadata_num_facts": 7,
+          "metadata_num_rules": 8,
+          "metadata_record_id": "AttNeg-OWA-D0-4611",
+          "metadata_all_proofs": "@0: Gary is furry.[(triple1 OR ((triple7) -> rule3))] Gary is nice.[(triple2)] Gary is not smart.[(triple5 OR ((triple6) -> rule7))] Gary is red.[(triple3 OR ((triple6) -> rule2))] Gary is rough.[(tri...",
+          "metadata_row_index": 0
+        },
+        {
+          "input": "Theory: Gary is furry. Gary is nice. Gary is red. Gary is rough. Gary is not smart. Gary is white. Gary is young. If Gary is nice and Gary is not white then Gary is red. If someone is white then they ...",
+          "output": "false",
+          "metadata_split": "train",
+          "metadata_config": "depth-0",
+          "metadata_reasoning_depth": 0,
+          "metadata_num_facts": 7,
+          "metadata_num_rules": 8,
+          "metadata_record_id": "AttNeg-OWA-D0-4611",
+          "metadata_all_proofs": "@0: Gary is furry.[(triple1 OR ((triple7) -> rule3))] Gary is nice.[(triple2)] Gary is not smart.[(triple5 OR ((triple6) -> rule7))] Gary is red.[(triple3 OR ((triple6) -> rule2))] Gary is rough.[(tri...",
+          "metadata_row_index": 1
+        },
+        {
+          "input": "Theory: Bob is furry. Dave is quiet. Harry is big. Rough things are white. All rough things are white. If Dave is rough then Dave is green.\nQuery: Bob is furry.",
+          "output": "true",
+          "metadata_split": "train",
+          "metadata_config": "depth-0",
+          "metadata_reasoning_depth": 0,
+          "metadata_num_facts": 3,
+          "metadata_num_rules": 3,
+          "metadata_record_id": "AttNoneg-OWA-D0-3321",
+          "metadata_all_proofs": "@0: Bob is furry.[(triple1)] Dave is quiet.[(triple2)] Harry is big.[(triple3)]",
+          "metadata_row_index": 2
+        }
+      ]
+    },
+    {
+      "dataset": "clutrr",
+      "examples": [
+        {
+          "input": "Story: [Clarence]'s granddaughter, [Emily], was busy helping her brother, [Michael], move to college.\nQuery: ('Clarence', 'Michael')",
+          "output": "grandson",
+          "metadata_split": "train",
+          "metadata_task_name": "task_1.2",
+          "metadata_reasoning_depth": 2,
+          "metadata_f_comb": "granddaughter-brother",
+          "metadata_proof_state": "[{('Clarence', 'grandson', 'Michael'): [('Clarence', 'granddaughter', 'Emily'), ('Emily', 'brother', 'Michael')]}]",
+          "metadata_record_id": "511be16e-05ba-4d6a-b258-ef2201d6757a",
+          "metadata_row_index": 0
+        },
+        {
+          "input": "Story: [Emily] and her granddaughter [Ashley] went to the mall [Michael] likes to visit his sister. Her name is [Emily].\nQuery: ('Ashley', 'Michael')",
+          "output": "grandson",
+          "metadata_split": "train",
+          "metadata_task_name": "task_1.2",
+          "metadata_reasoning_depth": 2,
+          "metadata_f_comb": "granddaughter-brother",
+          "metadata_proof_state": "[{('Ashley', 'grandson', 'Michael'): [('Ashley', 'granddaughter', 'Emily'), ('Emily', 'brother', 'Michael')]}]",
+          "metadata_record_id": "0f226f4d-dc2d-4051-a875-9e555ecf0f22",
+          "metadata_row_index": 1
+        },
+        {
+          "input": "Story: [Tony] and his sister, [June], went to a sneak preview of the Avengers movie and loved it. [Clarence] has 3 children, and one grandson. The Grandsons name is [Tony]\nQuery: ('Clarence', 'June')",
+          "output": "granddaughter",
+          "metadata_split": "train",
+          "metadata_task_name": "task_1.2",
+          "metadata_reasoning_depth": 2,
+          "metadata_f_comb": "grandson-sister",
+          "metadata_proof_state": "[{('Clarence', 'granddaughter', 'June'): [('Clarence', 'grandson', 'Tony'), ('Tony', 'sister', 'June')]}]",
+          "metadata_record_id": "946e19f0-a149-4317-9ea9-053788662090",
+          "metadata_row_index": 2
+        }
+      ]
+    }
+  ]
+}
